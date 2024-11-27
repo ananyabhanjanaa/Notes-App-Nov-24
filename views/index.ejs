@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+ <div class="main w-full min-h-screen bg-zinc-800">
+    <div class="form p-10 text-white">
+        <form action="/create" method="post">
+            <input class="bloack w-full rounded-md outline-none bg-zinc-700 text-white p-3 mb-2" type="text" placeholder="title goes here" name="title">
+            <textarea class="block w-full rounded-md outline-none bg-zinc-700 text-white p-3" placeholder="write you task here" name="details"></textarea>
+            <input class="mt-3 bg-yellow-300 p-1 rounded" type="submit" value="create task">
+        </form>
+    </div>
+
+    <div class="tasks p-10 flex-wrap gap-3">
+        <!-- matlab agar ek se zyada files hogi toh utni baa loop chalegi and display hoge vo wale notes -->
+        <% if(files.length>0) { %>
+            <% files.forEach(function(val){ %>
+                <div class="task w-72  px-2 py-4 rounded-md bg-zinc-700">
+                    <h1 class="text-white text-3xl">some task goes here</h1>
+                    <a class="text-yellow-500" href="">read more</a>
+                </div>
+                <%  }) %>
+                <%  } else { %>
+                    <h3 class="text-zinc-600"> no tasks yet</h3>
+                    <%  } %>
+    </div>
+ </div>
+</body>
+</html>
