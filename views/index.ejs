@@ -16,13 +16,19 @@
         </form>
     </div>
 
-    <div class="tasks p-10 flex-wrap gap-3">
+    <div class="tasks p-10 flex flex-wrap gap-3">
         <!-- matlab agar ek se zyada files hogi toh utni baa loop chalegi and display hoge vo wale notes -->
         <% if(files.length>0) { %>
             <% files.forEach(function(val){ %>
-                <div class="task w-72  px-2 py-4 rounded-md bg-zinc-700">
-                    <h1 class="text-white text-3xl">some task goes here</h1>
-                    <a class="text-yellow-500" href="">read more</a>
+                <!-- val holds the value of each file name or content as the forEach loop iterates over the files array. -->
+                <div class="task w-72 mb-2  px-2 py-4 rounded-md bg-zinc-700">
+                    <h1 class="text-white text-3xl"><%= val%></h1>
+                    <div class="flex w-full justify-between mt-2">
+                        <a class="text-yellow-500" href="/file/<%= val %>">read more</a>
+                    <a class="text-zinc-500" href="/edit/<%=val %>">edit</a>
+                    <!-- val is the current element (or file name) being processed in each iteratio -->
+                    </div>
+                    
                 </div>
                 <%  }) %>
                 <%  } else { %>
